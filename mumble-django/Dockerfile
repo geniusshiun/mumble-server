@@ -1,10 +1,10 @@
 FROM debian:stretch-slim
 
 RUN apt-get update 
-RUN apt install -y mercurial patch
+RUN apt install dialog apt-utils mercurial patch git -y 
 
 WORKDIR /opt
-RUN hg clone https://bitbucket.org/Svedrin/mumble-django
+RUN git clone https://github.com/klemorali/mumble-django
 
 COPY IceEncodingVersion.patch /opt/mumble-django
 WORKDIR /opt/mumble-django
